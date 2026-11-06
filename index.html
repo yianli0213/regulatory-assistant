@@ -1,35 +1,39 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>法規情報助手</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="保險法規異動分類與人工審核原型">
+  <title>法規情報助手</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header class="top">
-  <div class="wrap">
-    <div>
-      <div class="brand"><h1>法規情報助手</h1><span>原型示意</span></div>
-      <nav class="tabs" id="tabs" aria-label="主要頁面">
-        <a href="#home" data-tab="home">動態首頁</a>
-        <a href="#cases" data-tab="cases">裁罰案例庫</a>
-        <a href="#log" data-tab="log">處理紀錄</a>
-      </nav>
+  <header class="top">
+    <div class="wrap">
+      <div>
+        <div class="brand"><h1>法規情報助手</h1><span>原型示意</span></div>
+        <nav class="tabs" aria-label="主要頁面">
+          <button class="nav-item is-active" data-view="home" type="button">動態首頁</button>
+          <button class="nav-item" data-view="cases" type="button">裁罰案例庫</button>
+          <button class="nav-item" data-view="log" type="button">處理紀錄</button>
+          <button class="nav-item" data-view="review" type="button">人工審核</button>
+        </nav>
+      </div>
+      <div class="who">
+        使用者：法遵／監管負責人
+        <button class="themebtn" id="themeToggle" type="button">切換深淺色</button>
+      </div>
     </div>
-    <div class="who">使用者：法遵／監管負責人（示意）　<button class="themebtn" id="themebtn" type="button">切換深淺色</button></div>
-  </div>
-</header>
+  </header>
 
-<main class="wrap">
-  <div class="banner">畫面為原型示意，條號、字號、日期與案例皆為示意資料，不是真實公告。AI 的整理與建議都是草稿，由人工確認後才成立；通知不會真的寄出。</div>
-  <div id="view"></div>
-</main>
-<div id="toast" class="toast" hidden></div>
+  <main class="wrap" id="app" tabindex="-1"></main>
 
-<script src="data.js"></script>
-<script src="app.js"></script>
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="detail-drawer" id="detailDrawer" aria-label="法規詳細資料" aria-hidden="true"></aside>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
